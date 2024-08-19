@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=3.0">
+  <title>No4</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .container {
+      max-width: 540px;
+      margin: 30px auto;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    select {
+      padding: 5px 10px;
+      background: #fafafa;
+      border: 1px solid #7c7c7c;
+      border-radius: 4px;
+    }
+
+    label {
+      margin-right: 5px;
+    }
+
+    button {
+      outline: none;
+      border: none;
+      padding: 5px 12px;
+      display: inline-block;
+      background: #000;
+      color: white;
+      border-radius: 4px;
+    }
+
+    form {
+      padding: 1rem;
+      background: #ddd;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <img src="img/1.jpg" alt="" id="img">
+
+    <form id="edit" style="margin-top: 30px; display: flex; justify-content: space-between;">
+      <div>
+        <label for="">Ubah:</label>
+        <select id="pilih-img">
+          <option value="img/1.jpg">Gambar 1</option>
+          <option value="img/2.jpg">Gambar 2</option>
+          <option value="img/3.jpg">Gambar 3</option>
+        </select>
+      </div>
+      <div>
+        <label for="">Ubah:</label>
+        <select id="pilih-opacity">
+          <option>--pilih opacity--</option>
+          <option value="1">1</option>
+          <option value="0.5">0,5</option>
+          <option value="0.2">0.2</option>
+        </select>
+      </div>
+      <button type="submit">Kirim</button>
+    </form>
+  </div>
+
+  <script>
+    const img = document.getElementById('img');
+    const form = document.getElementById('edit');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const selectedImg = document.getElementById('pilih-img').value;
+      const selectedOpacity = document.getElementById('pilih-opacity').value;
+
+      img.src = selectedImg;
+      img.style.opacity = selectedOpacity;
+    })
+  </script>
+</body>
+
+</html>
