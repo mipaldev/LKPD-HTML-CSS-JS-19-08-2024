@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>status ayah</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #373345;
+    }
+    
+    label {
+      margin: 1.5rem 0 0.5rem;
+      display: block;
+    }
+
+    .container {
+      position: absolute;
+      border-radius: 0.5  rem;
+      left: 50%;
+      top: 50%; 
+      transform: translate(-50%, -50%);
+      max-width: 720px;
+      padding: 2rem;
+      background-color: #f5f5f5;
+    }
+
+    input,select {
+      width: 100%;
+      padding: 0.7rem  1rem;
+      border: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <label for="statusAyah">Status Ayah</label>
+    <select name="statusAyah" id="statusAyah" onchange="change(this)">
+      <option value="hidup">Masih Hidup</option>
+      <option value="meninggal">Sudah Meninggal</option>
+      <option value="tidakDiketahui">Tidak Diketahui</option>
+    </select>
+
+    <div id="content">
+      <label for="pekerjaanAyah">Pekerjaan</label>
+      <select name="pekerjaanAyah" id="pekerjaanAyah">
+        <option value="karyawan">Karyawan</option>
+        <option value="wirausaha">Wirausaha</option>
+        <option value="tidakDiketahui">Tidak Diketahui</option>
+      </select>
+
+      <label for="pendidikanAyah">Pendidikan</label>
+      <select name="pendidikanAyah" id="pendidikanAyah">
+        <option value="sd">Sekolah Dasar</option>
+        <option value="smp">Sekolah Menengah Pertama</option>
+        <option value="sma">Sekolah Menengah Atas</option>
+      </select>
+
+      <label for="deskripsiPekerjaan">Deskripsi Pekerjaan Ayah</label>
+      <input type="text" id="deskripsiPekerjaan" />
+
+      <label for="penghasilanAyah">Total Penghasilan Ayah</label>
+      <input type="text" id="penghasilanAyah" />
+
+      <div id="detail">
+        <label for="detailAyah">Detail Pekerjaan, Lama Bekerja, Kondisi, dan Kondisi Karir</label>
+        <input type="text" id="detailAyah" />
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function change(e) {
+      const detailLabel = e.value === "meninggal"
+        ? "Pekerjaan Ayah Semasa Hidup"
+        : "Detail Pekerjaan, Lama Bekerja, Kondisi, dan Kondisi Karir";
+
+      document.querySelector('#detail label').textContent = detailLabel;
+      document.getElementById("content").style.display = e.value === "tidakDiketahui" ? "none" : "block";
+    }
+
+    // document.getElementById('penghasilanAyah').addEventListener('keyup', (e) => {
+    //   e.target.value = e.target.value ? `Rp. ${e.target.value.replace(/[^,\d]/g, '')}` : '';
+    // });
+
+  document.getElementById('penghasilanAyah').addEventListener('keyup', (e) => {
+    let angka = e.target.value.replace(/[^,\d]/g, '');
+    e.target.value = angka ? `Rp ${parseInt(angka, 10).toLocaleString('id-ID')}` : '';
+  });
+
+
+  </script>
+</body>
+
+
+</html>

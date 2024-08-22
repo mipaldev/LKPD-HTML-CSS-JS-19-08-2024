@@ -59,9 +59,10 @@
       alert = document.getElementById('alert');
       alert.style.display = 'block';
       let countdown = 5;
+
       let hitungMundur = setInterval(() => {
-        document.getElementById('countdown').innerText = countdown;
         countdown--;
+        document.getElementById('countdown').innerText = countdown;
         if (countdown <= 0) {
           clearInterval(hitungMundur);
           alert.style.display = 'none';

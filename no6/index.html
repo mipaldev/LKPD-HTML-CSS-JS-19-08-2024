@@ -44,6 +44,7 @@
 
 
 </style>
+
 <body>
   
 <div class="container">
@@ -57,15 +58,16 @@
   </div>
 </div>
 
+
 <script>
   const form = document.getElementById('form');
   const output = document.getElementById('output');
   const searchInput = document.getElementById('search');
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', function(e) {
     e.preventDefault();
     const userInput = searchInput.value;
-    output.innerHTML = `Menacari data <span style="color: rgb(64, 0, 255);">${userInput}</span>...`;
+    output.innerHTML = `Mencari data <span style="color: rgb(64, 0, 255);">${userInput}</span>...`;
   });
 </script>
 </body>
